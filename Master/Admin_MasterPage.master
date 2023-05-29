@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin_MasterPage.master.cs"
+    Inherits="Admin_MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <script src="../JScript.js" language="javascript" type="text/javascript"></script>
+    <link href="../StyleSheet.css" type="text/css" media="screen" rel="Stylesheet"/>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+     <table align="center">
+<tr>
+<td>
+    <div>
+        <ul id="qm1" class="qmmc">
+
+	<li><a class="qmparent" href="../Master/arrival.aspx">Master</a>
+		<ul>
+		<li><a href="../Master/LocoType.aspx"> TYPE </a></li>
+		<li><a href="../Master/arrival.aspx"> ARRIVAL </a></li>
+		<li><a href="../Master/Assembly.aspx"> ASSEMBLY </a></li>
+		<li><a href="../Master/caste.aspx"> CASTE </a></li>
+		<li><a href="../Master/subCast.aspx"> SUB CASTE</a></li>
+		<li><a href="../Master/category.aspx"> CATEGORY </a></li>
+		<li><a href="../Master/failure.aspx"> FAILURE </a></li>
+		<li><a href="../Master/hq.aspx"> HQ </a></li>
+		<li><a href="../Master/irregularity.aspx"> IRREGULARITY </a></li>
+		<li><a href="../Master/loco.aspx"> LOCO </a></li>
+		<li><a href="../Master/medical.aspx"> MEDICAL </a></li>
+		<li><a href="../Master/nonstate.aspx"> NON-STATE </a></li>
+		<li><a href="../Master/over_due.aspx"> OVER DUE </a></li>
+		<li><a href="../Master/resp.aspx"> RESP </a></li>
+		<li><a href="../Master/rly.aspx"> RAILWAY </a></li>
+		<li><a href="../Master/service.aspx"> SERVICES </a></li>
+		<li><a href="../Master/site.aspx"> SITE </a></li>
+		<li><a href="../Master/sitesection.aspx"> SECTION </a></li>
+		<li><a href="../Master/supplier.aspx"> SUPPLIER </a></li>
+		<li><a href="../Master/unit.aspx"></a> UNIT </li>
+		<li><a href="../Master/wing.aspx"></a> WING </li>
+		
+		</ul></li>
+
+	<li><a class="qmparent" href="javascript:void(0);">DATA ENTRY</a>
+
+		<ul>
+		<li><a href="../Loco/Loco_In.aspx">LOCO IN</a></li>
+		<li><a href="../Loco/Loco_Out.aspx">LOCO OUT</a></li>
+		</ul></li>
+
+	<li><a class="qmparent" href="javascript:void(0);">REPORT</a>
+
+		<ul>
+		<li><a href="../Loco/View_LocoIn.aspx">LOCO IN</a></li>
+		<li><a href="../Loco/View_LocoOut.aspx">LOCO OUT</a></li>
+		</ul></li>
+
+<li class="qmclear">&nbsp;</li></ul>
+</td>    
+</tr>
+</table>
+
+<!-- Create Menu Settings: (Menu ID, Is Vertical, Show Timer, Hide Timer, On Click ('all' or 'lev2'), Right to Left, Horizontal Subs, Flush Left, Flush Top) -->
+<script type="text/javascript">qm_create(1,false,0,500,false,false,false,false,false);</script>
+</div>
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

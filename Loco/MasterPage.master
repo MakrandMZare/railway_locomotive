@@ -1,0 +1,315 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Loco_MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Loco Sabarmati</title>
+    <%--<link href="../StyleSheet.css" rel="Stylesheet" />--%>
+    <link href="../MenuStyle.css" rel="Stylesheet" />
+
+    <script src="../JScript.js" language="javascript" type="text/javascript"></script>
+
+    <script language="javascript" type="text/javascript">
+    var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose; 
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" style="background-color:#424242;">
+    <table width="100%" style="height:100%;">
+        <tr>
+            <td  colspan="10">
+                <asp:Image runat="server" ID="i1" ImageUrl="~/img/nav.png" Width="100%" Height="30px"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table cellpadding="0" cellspacing="0" id="header" width="100%">
+                <tr>
+                <td><asp:Image runat="server" ID="imgloco" ImageUrl="~/img/indianrailway.jpg" /></td><td>LOCO MAINTENANCE SYSTEM</td>
+                </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10">
+                <asp:Panel runat="server" ID="MenuPanel" Visible="false">
+                    <asp:Menu ID="Menu1" runat="server" BackColor="#B5C7DE" DynamicHorizontalOffset="2"
+                        Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" Orientation="Horizontal"
+                        StaticSubMenuIndent="10px" OnMenuItemClick="Menu1_MenuItemClick">
+                        <StaticSelectedStyle BackColor="#507CD1" />
+                        <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" Font-Size="10pt" />
+                        <DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
+                        <DynamicMenuStyle BackColor="#B5C7DE" />
+                        <DynamicSelectedStyle BackColor="#507CD1" />
+                        <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                        <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
+                        <Items>
+                            <asp:MenuItem Text="MASTER" Value="MASTER">
+                                <asp:MenuItem Text="SUB MASTER" Value="COMPONENT">
+                                    <asp:MenuItem NavigateUrl="~/Master/LocoType.aspx" Text="LOCOTYPE" Value="LOCOTYPE">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/arrival.aspx" Text="ARRIVAL" Value="ARRIVAL">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/category.aspx" Text="CATEGORY" Value="CATEGORY">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/division.aspx" Text="DIVISION" Value="DIVISION">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/Section.aspx" Text="DEPARTMENT" Value="DEPARTMENT">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/failure.aspx" Text="FAILURE" Value="FAILURE">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/hq.aspx" Text="HQ" Value="HQ"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/irregularity.aspx" Text="IRREGULARITY" Value="IRREGULARITY">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/nonstate.aspx" Text="NON-STAT" Value="NON-STAT">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/over_due.aspx" Text="OVER DUE" Value="OVER DUE">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/resp.aspx" Text="RESP" Value="RESP"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/rly.aspx" Text="RAILWAY" Value="RAILWAY"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/service.aspx" Text="SERVICE" Value="SERVICE">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/site.aspx" Text="SITE" Value="SITE"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/shed.aspx" Text="SHED" Value="SHED"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/sitesection.aspx" Text="SECTION" Value="SECTION">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/unit.aspx" Text="UNIT" Value="UNIT"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/wing.aspx" Text="WING" Value="WING"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/Schdeule.aspx" Text="SCHEDULE" Value="SCHEDULE">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/distance_station.aspx" Text="Station Distance"
+                                        Value="Station Distance"></asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="HR" Value="HR">
+                                    <asp:MenuItem NavigateUrl="~/Master/medical.aspx" Text="MEDICAL" Value="MEDICAL">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/caste.aspx" Text="CASTE" Value="CASTE"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/subCast.aspx" Text="SUB CASTE" Value="SUB CASTE">
+                                    </asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="ASSEMBLY" Value="ASSEMBLY">
+                                    <asp:MenuItem NavigateUrl="~/Master/Assembly.aspx" Text="MAIN ASSEMBLY" Value="ASSEMBLY">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/supplier.aspx" Text="SUPPLIER" Value="SUPPLIER">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/Assembly_ElectricalItem_Master.aspx" 
+                                        Text="ELECTRICAL " Value="ELECTRICAL "></asp:MenuItem>
+                                    <asp:MenuItem Text="ELECTRICAL ITEMS" Value="ELECTRICAL ITEMS" 
+                                        NavigateUrl="~/Master/Assembly_ElectricalItem_SubMaster.aspx"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/Assembly_MechanicalItem_Master.aspx" 
+                                        Text="MECHANICAL" Value="MECHANICAL"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/Assembly_MechanicalItems_SubMaster.aspx" 
+                                        Text="MECHANICAL ITEM" Value="MECHANICAL ITEM">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/Assembly_Stock_Master.aspx" Text="STOCK MASTER"
+                                        Value="STOCK MASTER"></asp:MenuItem>
+                                    <asp:MenuItem Text="STOCK ITEMS" Value="STOCK ITEMS" NavigateUrl="~/Master/Loco_Assembly_StockItem.aspx"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/Assembly_NonStock_Master.aspx" Text="NON STOCK MASTER"
+                                        Value="NON STOCK MASTER"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Master/Assembly_NonStock.aspx" Text="NON STOCK ITEM" Value="NON STOCK ITEM">
+                                    </asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Master/loco1.aspx" Text="NEW LOCO" Value="NEW LOCO">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Master/UserCreation.aspx" Text="USER CREATION" Value="USER CREATION">
+                                </asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="DATA ENTRY" Value="DATA ENTRY">
+                                <asp:MenuItem Text="LOCO IN" Value="New Item" NavigateUrl="~/Loco/Loco_In.aspx">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Loco/Loco_Out.aspx" Text="LOCO OUT" Value="LOCO OUT">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LocoShedPosition/shedposition2.aspx" Text="LINE MESSAGE "
+                                    Value="LINE MESSAGE "></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LocoShedPosition/LineMessage2.aspx" Text="DEAD ON LINE"
+                                    Value="DEAD ON LINE"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LocoShedPosition/Loco_Movement.aspx" Text="LOCO MOVEMENT"
+                                    Value="LOCO MOVEMENT"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/HR/EmployeeDetails.aspx" Text="EMPLOYEE" Value="EMPLOYEE">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LocoShedPosition/MG_Incoming_PassengeLoco_n_Scheule.aspx"
+                                    Text="INCOMING PASSANGER LOCO" Value="INCOMING PASSANGER LOCO"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LocoShedPosition/Railway_OutAge.aspx" Text="OUT AGE"
+                                    Value="OUT AGE"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Loco/loco_gtkm.aspx" Text="GTKM" Value="GTKM"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Loco/Wheel_diameter.aspx" Text="Wheel" Value="Wheel"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Loco/Loco_History.aspx" Text="Loco History" Value="Loco History">
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Failure Analysis" Value="Failure Analysis" NavigateUrl="~/Loco/failure1.aspx"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="REPORT" Value="REPORT">
+                                <asp:MenuItem NavigateUrl="~/Loco/View_Locolist.aspx" Text="LOCO IN" Value="LOCO IN">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Loco/View_Locooutlist.aspx" Text="LOCO OUT" Value="LOCO OUT">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LocoShedPosition/View_ShedPosition.aspx" Text="LINE MESSAGE "
+                                    Value="LINE MESSAGE "></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LocoShedPosition/View_LineMessage2.aspx" Text="DEAD ON LINE"
+                                    Value="DEAD ON LINE"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LocoShedPosition/View_TemporaryRepair.aspx" Text="TEMPORARY REPAIR"
+                                    Value="TEMPORARY REPAIR"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LocoShedPosition/View_LocoMovements.aspx" Text="LOCO MOVEMENT"
+                                    Value="LOCO MOVEMENT"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/HR/View_EmployeeList.aspx" Text="EMPLOYEE" Value="EMPLOYEE">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Master/View_Loco_Master.aspx" Text="NEW LOCO" Value="NEW LOCO">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Loco/Loco_Report.aspx" Text="LOCO ASSEMBLY" Value="LOCO ASSEMBLY">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Loco/Loco_ScheduleManagement_Entry.aspx" Text="LOCO SCHEDULE"
+                                    Value="LOCO SCHEDULE"></asp:MenuItem>
+                                <asp:MenuItem Text="EMD SHED POSITION" Value="EMD SHED POSITION">
+                                    <asp:MenuItem NavigateUrl="~/LocoShedPosition/ShedPositionReport.aspx" Text="BG "
+                                        Value="BG"></asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Master/View_User.aspx" Text="USER" Value="USER"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Master/ViewAssemblystock.aspx" Text="STOCK" Value="STOCK">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Master/VieWAssemblyNonStock.aspx" Text="NON STOCK" 
+                                    Value="NON STOCK"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Master/View_Assembly_Electrical_SubMaster.aspx" 
+                                    Text="ELECTRICAL" Value="ELECTRICAL"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Master/View_Assembly_Mechanical_SubMaster.aspx" 
+                                    Text="MECHANICAL" Value="MECHANICAL"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Assembly" Value="Assembly">
+                                <asp:MenuItem NavigateUrl="~/Loco/LocoAssemblyEntry.aspx" Text="Assembly Entry" 
+                                    Value="Assembly Entry"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Loco/LocoAssemblyReport.aspx" 
+                                    Text="Assenbly Report" Value="Assenbly Report"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Loco/ViewLocoHistory.aspx" Text="Loco History" Value="Loco History">
+                                </asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="TESTING LAB" Value="TESTING LAB">
+                                <asp:MenuItem Text="Entry" Value="Entry">
+                                    <asp:MenuItem NavigateUrl="~/TestingLab/CoolanWater.aspx" Text="Coolant Water" Value="Coolant Water">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/TestingLab/gear_case.aspx" Text="Gear Case" Value="Gear Case">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/TestingLab/hsd_oil.aspx" Text="HSD Oil" Value="HSD Oil">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/TestingLab/Loco_CompressorOil.aspx" Text="Compressor Oil"
+                                        Value="Compressor Oil"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/TestingLab/Loco_GovernerOil.aspx" Text="Governer Oil"
+                                        Value="Governer Oil"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/TestingLab/lube_oil.aspx" Text="Lube Oil" Value="Lube Oil">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/TestingLab/spectro_anaylsis.aspx" Text="Spectro Analysis"
+                                        Value="Spectro Analysis"></asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Report" Value="Report">
+                                    <asp:MenuItem NavigateUrl="~/TestingLab/printCoolanWater.aspx" Text="Report Coolant Water"
+                                        Value="Report Coolant Water"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/TestingLab/printgear_case.aspx" Text="Report Gear Case"
+                                        Value="Report Gear Case"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/TestingLab/printhsd_oil.aspx" Text="Report HSD Oil"
+                                        Value="Report HSD Oil"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/TestingLab/printLoco_CompressorOil.aspx" Text="Report Compressor Oil"
+                                        Value="Report Compressor Oil"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/TestingLab/printLoco_GovernerOil.aspx" Text="Report Governer Oil"
+                                        Value="Report Governer Oil"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/TestingLab/printLube_oil.aspx" Text="Report Lube Oil"
+                                        Value="Report Lube Oil"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/TestingLab/printspectro_anaylsis.aspx" Text="Report Spectro Analysis"
+                                        Value="Report Spectro Analysis"></asp:MenuItem>
+                                </asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="ELECTRICAL" Value="ELECTRICAL">
+                                <asp:MenuItem NavigateUrl="~/ElectronicChekSheet/battery_yearly.aspx" Text="BATTERY"
+                                    Value="BATTERY"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/ElectronicChekSheet/TrectionMotor.aspx" Text="TRACTION MOTOR"
+                                    Value="TRACTION MOTOR"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/ElectronicChekSheet/ScheduleCardForm.aspx" Text="CONTROL PANEL 90"
+                                    Value="CONTROL PANEL 90"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/ElectronicChekSheet/rot_90.aspx" Text="ROTATING" Value="ROTATING">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/ElectronicChekSheet/irc_frc.aspx" Text="IRC-FRC" Value="IRC-FRC">
+                            </asp:MenuItem>
+                             </asp:MenuItem>  
+                            <asp:MenuItem Text="MECHANICAL" Value="MECHANICAL">
+                                <asp:MenuItem NavigateUrl="~/machanicalSection/airbreak.aspx" Text="AIR BRAKE" Value="AIR BRAKE">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/machanicalSection/fuel_system.aspx" Text="FUEL SYSTEM" Value="FUEL SYSTEM">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/machanicalSection/heatExchanger.aspx" Text="Heat Exchanger" Value="Heat Exchanger">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/machanicalSection/powerpack.aspx" Text="POWER PACK" Value="POWER PACK">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/machanicalSection/undertruck.aspx" Text="UNDER TRUCK" Value="AIR BRAKE">
+                                </asp:MenuItem>
+                            </asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                </asp:Panel>
+            </td>
+            </tr>
+            <tr>
+              <td colspan="10">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+    <%--<div id="mainbackground">
+        <div id="headerLine">
+        </div>
+        <div id="header">
+            <div id="divlogo">
+            </div>
+            <div style="position: absolute; top: 70px; left: 200px;">
+            </div>
+        </div>
+        <div id="sitemapDiv" style="background: green; height: 23px; width: 970px; position: absolute;
+            top: 195px; left: 2%;">
+        </div>
+        <div>
+        </div>
+    </div>--%>
+    </form>
+</body>
+</html>

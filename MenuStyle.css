@@ -1,0 +1,120 @@
+﻿body 
+{
+	font-family : Verdana;
+	font-size:12px;
+}
+#header
+{
+background-image:url(img/Header.jpg);
+margin-left:2%;
+border:solid 10px white;
+width:950px;
+height:120px;
+font-family:Verdana;
+font-size:45px;
+font-weight:bold;
+
+}
+.t1
+{
+background : #EFFBEF;
+border : solid 1px #04B404;
+font-family : Verdana;
+font-size:10px;
+
+	}
+.t2
+{
+background :#A9D0F5;
+border : solid 1px gray;
+font-family : Verdana;
+	font-size:10px;
+	height: auto;
+}
+
+
+#sddm
+{	margin: 0;
+	padding: 0;
+	z-index: 30}
+
+#sddm li
+{	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	font: bold 11px arial}
+
+#sddm li a
+{	display: block;
+	margin: 0 1px 0 0;
+	padding: 4px 10px;
+	width: 60px;
+	background: #5FB404;
+	color: white;
+	text-align: center;
+	text-decoration: none}
+
+#sddm li a:hover
+{	background: #B45F04}
+
+#sddm div
+{	position: absolute;
+	visibility: hidden;
+	margin: 0;
+	padding: 0;
+	background: #EAEBD8;
+	border: 1px solid white}
+
+	#sddm div a
+	{	position: relative;
+		display: block;
+		margin: 0;
+		padding: 5px 10px;
+		width: auto;
+		white-space: nowrap;
+		text-align: left;
+		text-decoration: none;
+		background: #B45F04;
+		color: white;
+		font: 11px arial}
+
+	#sddm div a:hover
+	{	background: #FF8000;
+		color:#2A1B0A}
+/*-------------------------------*/
+table
+{
+background:#ECF8E0;
+	border:solid 1px #5FB404;
+	padding:0;
+	
+}
+table th
+{
+	background-image:url(img/BlockHeader.png);
+	font-family:Verdana;
+	font-size:10px;
+	font-weight:bold;
+	color:#0B6138;
+	
+}
+.logo
+{}
+table tfoot
+{
+background-image:url(img/BlockHeader.png);
+}
+#mainbackground
+{background:#424242; position:absolute;
+height:100%; width:100%; padding: 0; top: 0; left: 0;bottom:0;}
+#headerLine
+{
+background-image: url(img/nav.png); border-bottom: solid green 2px; height:30px;
+}
+#menudiv
+{position:absolute; top:205px; background:#5FB404;width:970px; margin-left:2%;z-index:10; top:172px;}
+#ContentDiv
+{border:solid 10px white; background:#ECF8E0; position:absolute; top:220px; margin-left:2%;width:950px;bottom:0;height:100%;}
+#divlogo
+{background-image:url(img/indianrailway.jpg);height:120px;width:120px;}
